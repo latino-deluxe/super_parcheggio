@@ -53,3 +53,18 @@ void parkingBar2() {
     delay(5);
   }
 }
+
+void testIR() {
+  int TIR1;
+  int TIR2;
+  int TIR3;
+  TIR1 = analogRead(IR1);
+  TIR2 = analogRead(IR2);
+  TIR3 = analogRead(IR3);
+  Serial.print("IR1 = ");
+  Serial.print(TIR1);
+  Serial.print("  IR2 = ");
+  Serial.print(TIR2);
+  Serial.print("  IR3 = ");
+  Serial.println(TIR3);
+}
