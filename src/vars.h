@@ -5,6 +5,10 @@
 #define extr
 #endif
 
+
+Servo mariottide;
+
+
 //Luci
 #define FTR1 A0
 #define FTR2 A1
