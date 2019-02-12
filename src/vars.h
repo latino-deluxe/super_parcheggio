@@ -1,5 +1,7 @@
 #include <Arduino.h>
 #include <Servo.h>
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h>
 #ifndef MAIN
 #define extr extern
 #else
