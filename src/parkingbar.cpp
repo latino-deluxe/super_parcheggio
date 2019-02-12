@@ -1,8 +1,14 @@
 #include "vars.h"
+#include "classes.h"
+
+void initServo() {
+  mariottide.attach(9);
+  billyballo.attach(10);
+}
 
 void checkButton() {
-  V1 = digitalRead(PU1);
-  if(V1 == HIGH) {
+  VP1 = digitalRead(PU1);
+  if(VP1 == HIGH) {
     entry1 = true;
     delay(10);
   }

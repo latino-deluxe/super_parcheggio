@@ -1,12 +1,11 @@
 #include <Arduino.h>
+#include <Servo.h>
 #ifndef MAIN
 #define extr extern
 #else
 #define extr
 #endif
 
-
-Servo mariottide;
 
 
 //Luci
