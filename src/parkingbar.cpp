@@ -1,5 +1,5 @@
 #include "vars.h"
-#include "classes.h"
+#include "classesS.h"
 
 void initServo() {
   mariottide.attach(9);
@@ -32,12 +32,13 @@ void parkingBar1() {
   checkIR();
   if(entry1) for(int i=0; i<=90; i++) {
     mariottide.write(i);
-    delay(5);
+    // delay(5);
   }
   if(entry2) mariottide.write(90);
   if(entry2 == false) for(int i=90; i>=0; i--) {
     mariottide.write(i);
-    delay(5);
+    // delay(5);
+    posti--;
   }
 }
 
@@ -45,12 +46,13 @@ void parkingBar2() {
   checkIR();
   if(exit1) for(int i=0; i<=90; i++) {
     mariottide.write(i);
-    delay(5);
+    // delay(5);
   }
   if(exit2) mariottide.write(90);
   if(exit2 == false) for(int i=90; i>=0; i--) {
     mariottide.write(i);
-    delay(5);
+    // delay(5);
+    posti++;
   }
 }
 
@@ -67,4 +69,12 @@ void testIR() {
   Serial.print(TIR2);
   Serial.print("  IR3 = ");
   Serial.println(TIR3);
+}
+
+
+void simCars() {
+  int s;
+  s = digitalRead(12);
+  if(s == HIGH) posti++;
+  if(s == LOW) posti--;
 }

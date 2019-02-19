@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <Servo.h>
-#include <Wire.h> 
+#include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #ifndef MAIN
 #define extr extern
@@ -37,3 +37,7 @@ extr bool exit2;
 extr int VIR1;
 extr int VIR2;
 extr int VIR3;
+
+extr int i;
+
+extr int posti;
