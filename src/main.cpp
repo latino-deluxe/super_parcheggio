@@ -33,5 +33,5 @@ void loop() {
   // parkingBar1();
   // parkingBar2();
   displayP();
-  simCars();
+  // simCars();
 }
