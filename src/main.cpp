@@ -29,9 +29,9 @@ void setup() {
 }
 
 void loop() {
-  // isSunnyToday();
-  // parkingBar1();
-  // parkingBar2();
+  isSunnyToday();
+  parkingBar1();
+  parkingBar2();
   displayP();
   // simCars();
 }
