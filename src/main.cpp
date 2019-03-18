@@ -25,13 +25,20 @@ void setup() {
   pinMode(IR1, INPUT);
   pinMode(IR2, INPUT);
   pinMode(IR3, INPUT);
+  pinMode(EM, OUTPUT);
+  //REGISTRI
+  TCCR2A = _BV(WGM21) | _BV(COM2A0);
+  TCCR2B = _BV(CS20);
+  OCR2A = 221;
   Serial.begin(9600);
 }
 
 void loop() {
-  isSunnyToday();
-  parkingBar1();
-  parkingBar2();
-  displayP();
+  // isSunnyToday();
+  // parkingBar1();
+  // parkingBar2();
+  // displayP();
   // simCars();
+  testIR();
+  delay(200);
 }

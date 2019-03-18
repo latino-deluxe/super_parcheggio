@@ -18,10 +18,11 @@
 //Pulsanti
 #define PU1 2
 
-//Sensori IR
-#define IR1 A2
+//IR
+#define IR1 A5
 #define IR2 A3
 #define IR3 A4
+#define EM 11
 
 extr int FR1;
 extr int FR2;

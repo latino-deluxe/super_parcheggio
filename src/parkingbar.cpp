@@ -16,14 +16,14 @@ void checkButton() {
 }
 
 void checkIR() {
-  VIR1 = analogRead(IR1);
-  VIR2 = analogRead(IR2);
-  VIR3 = analogRead(IR3);
-  if(VIR1<500) entry2 = true;
+  VIR1 = digitalRead(IR1);
+  VIR2 = digitalRead(IR2);
+  VIR3 = digitalRead(IR3);
+  if(VIR1 = 1) entry2 = true;
   else entry2 = false;
-  if(VIR2<500) exit1 = true;
+  if(VIR2 = 1) exit1 = true;
   else exit1 = false;
-  if(VIR3<500) exit2 = true;
+  if(VIR3 = 1) exit2 = true;
   else exit2 = false;
 }
 
@@ -60,9 +60,9 @@ void testIR() {
   int TIR1;
   int TIR2;
   int TIR3;
-  TIR1 = analogRead(IR1);
-  TIR2 = analogRead(IR2);
-  TIR3 = analogRead(IR3);
+  TIR1 = digitalRead(IR1);
+  TIR2 = digitalRead(IR2);
+  TIR3 = digitalRead(IR3);
   Serial.print("IR1 = ");
   Serial.print(TIR1);
   Serial.print("  IR2 = ");
