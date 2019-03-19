@@ -32,12 +32,12 @@ void parkingBar1() {                                    //gestisco la sbarra di 
   checkIR();                                            //controllo infrarossi
   if(entry1) for(int i=0; i<=90; i++) {                 //se sta entrando
     mariottide.write(i);                                //alzo gradualmente la sbarra
-    // delay(5);
+    delay(15);
   }
   if(entry2) mariottide.write(90);                      //mantengo se sta ancora entrando
   if(entry2 == false) for(int i=90; i>=0; i--) {        //se non è più in zona di pericolo
     mariottide.write(i);                                //abbasso gradualmente la sbarra
-    // delay(5);
+    delay(15);
     posti--;                                            //diminuisco i posti disponibili
   }
 }
@@ -45,13 +45,13 @@ void parkingBar1() {                                    //gestisco la sbarra di 
 void parkingBar2() {                                    //gestisco la sbarra di uscita
   checkIR();                                            //controllo degli infrarossi
   if(exit1) for(int i=0; i<=90; i++) {                  //se sta uscendo
-    mariottide.write(i);                                //alzo gradualmente la sbarra
-    // delay(5);
+    billyballo.write(i);                                //alzo gradualmente la sbarra
+    delay(15);
   }
   if(exit2) mariottide.write(90);                       //mantengo se sta ancora uscendo
   if(exit2 == false) for(int i=90; i>=0; i--) {         //se non è più in zona di pericolo
-    mariottide.write(i);                                //abbasso gradualmente la sbarra
-    // delay(5);
+    billyballo.write(i);                                //abbasso gradualmente la sbarra
+    delay(15);
     posti++;                                            //aumento i posti disponibili
   }
 }
@@ -82,4 +82,23 @@ void simCars() {                                        //funzione di simulazion
 void checkPosti() {                                     //controlo e limito la variabile dei posti
   if(posti <= 0)  posti = 0;                            //se va sottozero limito a zero
   if(posti >= 10) posti = 10;                           //se aumenta oltre 10 imposto 10
+}
+
+void testSbarra() {
+  for(int i=90; i>=0; i--) {
+   mariottide.write(i);
+   delay(15);
+ }
+  for(int i=0; i<=90; i++) {
+     mariottide.write(i);
+     delay(15);
+ }
+ for(int i=90; i>=0; i--) {
+  billyballo.write(i);
+  delay(15);
+}
+ for(int i=0; i<=90; i++) {
+    billyballo.write(i);
+    delay(15);
+}
 }
