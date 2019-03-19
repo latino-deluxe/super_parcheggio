@@ -34,11 +34,10 @@ void setup() {
 }
 
 void loop() {
-  // isSunnyToday();
-  // parkingBar1();
-  // parkingBar2();
-  // displayP();
-  // simCars();
-  testIR();
+  isSunnyToday();
+  parkingBar1();
+  parkingBar2();
+  displayP();
+  simCars();
   delay(200);
 }
