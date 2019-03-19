@@ -5,3 +5,4 @@ void checkIR();
 void initServo();
 void testIR();
 void simCars();
+void checkPosti();

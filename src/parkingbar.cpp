@@ -1,12 +1,12 @@
 #include "vars.h"
 #include "classesS.h"
 
-void initServo() {
-  mariottide.attach(9);
-  billyballo.attach(10);
+void initServo() {                                      //inizializzo pin servomotore
+  mariottide.attach(12);
+  billyballo.attach(13);
 }
 
-void checkButton() {
+void checkButton() {                                    //controllo del bottone d'entrata
   VP1 = digitalRead(PU1);
   if(VP1 == HIGH) {
     entry1 = true;
@@ -15,11 +15,11 @@ void checkButton() {
   else entry1 = false;
 }
 
-void checkIR() {
+void checkIR() {                                        //controllo i sensori infrarossi
   VIR1 = digitalRead(IR1);
   VIR2 = digitalRead(IR2);
   VIR3 = digitalRead(IR3);
-  if(VIR1 = 1) entry2 = true;
+  if(VIR1 = 1) entry2 = true;                           //e imposto le variabil di stato
   else entry2 = false;
   if(VIR2 = 1) exit1 = true;
   else exit1 = false;
@@ -27,40 +27,40 @@ void checkIR() {
   else exit2 = false;
 }
 
-void parkingBar1() {
-  checkButton();
-  checkIR();
-  if(entry1) for(int i=0; i<=90; i++) {
-    mariottide.write(i);
+void parkingBar1() {                                    //gestisco la sbarra di entrata
+  checkButton();                                        //controllo pulsante
+  checkIR();                                            //controllo infrarossi
+  if(entry1) for(int i=0; i<=90; i++) {                 //se sta entrando
+    mariottide.write(i);                                //alzo gradualmente la sbarra
     // delay(5);
   }
-  if(entry2) mariottide.write(90);
-  if(entry2 == false) for(int i=90; i>=0; i--) {
-    mariottide.write(i);
+  if(entry2) mariottide.write(90);                      //mantengo se sta ancora entrando
+  if(entry2 == false) for(int i=90; i>=0; i--) {        //se non è più in zona di pericolo
+    mariottide.write(i);                                //abbasso gradualmente la sbarra
     // delay(5);
-    posti--;
-  }
-}
-
-void parkingBar2() {
-  checkIR();
-  if(exit1) for(int i=0; i<=90; i++) {
-    mariottide.write(i);
-    // delay(5);
-  }
-  if(exit2) mariottide.write(90);
-  if(exit2 == false) for(int i=90; i>=0; i--) {
-    mariottide.write(i);
-    // delay(5);
-    posti++;
+    posti--;                                            //diminuisco i posti disponibili
   }
 }
 
-void testIR() {
+void parkingBar2() {                                    //gestisco la sbarra di uscita
+  checkIR();                                            //controllo degli infrarossi
+  if(exit1) for(int i=0; i<=90; i++) {                  //se sta uscendo
+    mariottide.write(i);                                //alzo gradualmente la sbarra
+    // delay(5);
+  }
+  if(exit2) mariottide.write(90);                       //mantengo se sta ancora uscendo
+  if(exit2 == false) for(int i=90; i>=0; i--) {         //se non è più in zona di pericolo
+    mariottide.write(i);                                //abbasso gradualmente la sbarra
+    // delay(5);
+    posti++;                                            //aumento i posti disponibili
+  }
+}
+
+void testIR() {                                         //funzione di test IR
   int TIR1;
   int TIR2;
   int TIR3;
-  TIR1 = digitalRead(IR1);
+  TIR1 = digitalRead(IR1);                              //leggo e visualizzo in seriale
   TIR2 = digitalRead(IR2);
   TIR3 = digitalRead(IR3);
   Serial.print("IR1 = ");
@@ -72,9 +72,14 @@ void testIR() {
 }
 
 
-void simCars() {
+void simCars() {                                        //funzione di simulazione delle macchine
   int s;
   s = digitalRead(12);
   if(s == HIGH) posti++;
   if(s == LOW) posti--;
+}
+
+void checkPosti() {                                     //controlo e limito la variabile dei posti
+  if(posti <= 0)  posti = 0;                            //se va sottozero limito a zero
+  if(posti >= 10) posti = 10;                           //se aumenta oltre 10 imposto 10
 }

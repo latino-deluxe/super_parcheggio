@@ -1,12 +1,12 @@
 #include "vars.h"
 #include "classesD.h"
 
-void displayInit() {
+void displayInit() {                                    //inizializzo il display I2C
   lcd.init();
   lcd.backlight();
 }
 
-void displayTEST() {
+void displayTEST() {                                    //funzione di test per il display
   lcd.setCursor(0,0);
   lcd.print("Parcheggi");
 
@@ -25,12 +25,12 @@ void displayTEST() {
   lcd.clear();
 }
 
-void displayP() {
+void displayP() {                                       //routine di refresh del display
   lcd.setCursor(0,0);
   lcd.print("Parcheggi");
   lcd.setCursor(0,1);
   lcd.print("occupati :");
   lcd.setCursor(10,1);
-  lcd.print(posti);
+  lcd.print(posti);                                     //mostro i posti disponibili
   // lcd.clear();
 }
