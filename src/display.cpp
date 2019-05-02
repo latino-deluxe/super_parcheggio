@@ -29,7 +29,7 @@ void displayP() {                                       //routine di refresh del
   lcd.setCursor(0,0);
   lcd.print("Parcheggi");
   lcd.setCursor(0,1);
-  lcd.print("occupati :");
+  lcd.print("liberi :");
   lcd.setCursor(10,1);
   lcd.print(posti);                                     //mostro i posti disponibili
   // lcd.clear();
