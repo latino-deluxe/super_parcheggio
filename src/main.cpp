@@ -39,6 +39,7 @@ void loop() {
   // parkingBar2();
   // displayP();
   // simCars();
-  // testSbarra();
+  testSbarra();
   delay(200);
+  
 }

@@ -30,12 +30,12 @@ void checkIR() {                                        //controllo i sensori in
 void parkingBar1() {                                    //gestisco la sbarra di entrata
   checkButton();                                        //controllo pulsante
   checkIR();                                            //controllo infrarossi
-  if(entry1) for(int i=0; i<=90; i++) {                 //se sta entrando
+  if(entry1) for(int i=180; i<=90; i++) {               //se sta entrando
     mariottide.write(i);                                //alzo gradualmente la sbarra
     delay(15);
   }
   if(entry2) mariottide.write(90);                      //mantengo se sta ancora entrando
-  if(entry2 == false) for(int i=90; i>=0; i--) {        //se non è più in zona di pericolo
+  if(entry2 == false) for(int i=90; i>=180; i--) {      //se non è più in zona di pericolo
     mariottide.write(i);                                //abbasso gradualmente la sbarra
     delay(15);
     posti--;                                            //diminuisco i posti disponibili
@@ -44,12 +44,12 @@ void parkingBar1() {                                    //gestisco la sbarra di 
 
 void parkingBar2() {                                    //gestisco la sbarra di uscita
   checkIR();                                            //controllo degli infrarossi
-  if(exit1) for(int i=0; i<=90; i++) {                  //se sta uscendo
+  if(exit1) for(int i=90; i<=0; i++) {                  //se sta uscendo
     billyballo.write(i);                                //alzo gradualmente la sbarra
     delay(15);
   }
   if(exit2) mariottide.write(90);                       //mantengo se sta ancora uscendo
-  if(exit2 == false) for(int i=90; i>=0; i--) {         //se non è più in zona di pericolo
+  if(exit2 == false) for(int i=0; i>=90; i--) {         //se non è più in zona di pericolo
     billyballo.write(i);                                //abbasso gradualmente la sbarra
     delay(15);
     posti++;                                            //aumento i posti disponibili
@@ -85,7 +85,7 @@ void checkPosti() {                                     //controlo e limito la v
 }
 
 void testSbarra() {
-  for(int i=90; i>=0; i--) {
+  for(int i=90; i>=0; i--) {      //uscita 90 0
    mariottide.write(i);
    delay(15);
  }
@@ -93,11 +93,11 @@ void testSbarra() {
      mariottide.write(i);
      delay(15);
  }
- for(int i=90; i>=0; i--) {
+ for(int i=180; i>=90; i--) {     //entrata 180 90
   billyballo.write(i);
   delay(15);
 }
- for(int i=0; i<=90; i++) {
+ for(int i=90; i<=180; i++) {
     billyballo.write(i);
     delay(15);
 }
