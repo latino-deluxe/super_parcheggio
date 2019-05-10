@@ -17,7 +17,7 @@ void setup() {
   VIR2 = 0;
   VIR3 = 0;
   i = 0;
-  posti = 0;
+  posti = 5;
   initServo();
   pinMode(FTR1, INPUT);
   pinMode(FTR2, INPUT);
@@ -40,6 +40,4 @@ void loop() {
   // displayP();
   // simCars();
   testSbarra();
-  delay(200);
-  
 }

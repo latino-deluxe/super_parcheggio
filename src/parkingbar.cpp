@@ -73,10 +73,14 @@ void testIR() {                                         //funzione di test IR
 
 
 void simCars() {                                        //funzione di simulazione delle macchine
-  int s;
-  s = digitalRead(12);
-  if(s == HIGH) posti++;
-  if(s == LOW) posti--;
+  posti--;
+  delay(500);
+  posti--;
+  delay(500);
+  posti++;
+  delay(500);
+  posti++;
+  delay(500);
 }
 
 void checkPosti() {                                     //controlo e limito la variabile dei posti
@@ -85,20 +89,20 @@ void checkPosti() {                                     //controlo e limito la v
 }
 
 void testSbarra() {
-  for(int i=90; i>=0; i--) {      //uscita 90 0
-   mariottide.write(i);
-   delay(15);
- }
   for(int i=0; i<=90; i++) {
-     mariottide.write(i);
+     billyballo.write(i);
      delay(15);
  }
+  for(int i=90; i>=0; i--) {      //uscita 90 0
+   billyballo.write(i);
+   delay(15);
+ }
  for(int i=180; i>=90; i--) {     //entrata 180 90
-  billyballo.write(i);
+  mariottide.write(i);
   delay(15);
 }
  for(int i=90; i<=180; i++) {
-    billyballo.write(i);
+    mariottide.write(i);
     delay(15);
 }
 }
