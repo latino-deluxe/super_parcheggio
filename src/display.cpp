@@ -7,30 +7,32 @@ void displayInit() {                                    //inizializzo il display
 }
 
 void displayTEST() {                                    //funzione di test per il display
-  lcd.setCursor(0,0);
-  lcd.print("Parcheggi");
+  
+  for(i=1; i<=15; i++) {
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Parcheggi");
 
-  lcd.setCursor(0,1);
-  lcd.print("occupati :");
+    lcd.setCursor(0,1);
+    lcd.print("occupati :");
 
-  lcd.setCursor(10,1);
-  for(i=1; i<=5; i++) {
+    lcd.setCursor(11,1);
     lcd.print(i);
-    delay(100);
+    delay(300);
   }
-  if(i>5){
+  if(i>15){
     delay(300);
     i=0;
   }
-  lcd.clear();
+  
 }
 
 void displayP() {                                       //routine di refresh del display
+  lcd.clear();                                          //pulisco il buffer per riscrivere il display
   lcd.setCursor(0,0);
   lcd.print("Parcheggi");
   lcd.setCursor(0,1);
   lcd.print("liberi :");
-  lcd.setCursor(10,1);
+  lcd.setCursor(11,1);
   lcd.print(posti);                                     //mostro i posti disponibili
-  // lcd.clear();
 }

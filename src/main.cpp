@@ -5,10 +5,11 @@
 #include "lights.h"
 #include "parkingbar.h"
 #include "display.h"
+#include "routine.h"
 
 
 void setup() {
-  displayInit();
+  //Imposto le variabili globali a zero (o al valore iniziale che desidero);
   FRM = 0;
   FR1 = 0;
   FR2 = 0;
@@ -17,27 +18,23 @@ void setup() {
   VIR2 = 0;
   VIR3 = 0;
   i = 0;
-  posti = 5;
-  initServo();
-  pinMode(FTR1, INPUT);
+  posti = 4;
+  initServo();                    //Inizializzo i servo
+  displayInit();                  //Inizializzo Display LCD
+  pinMode(FTR1, INPUT);           //Fotoresistori
   pinMode(FTR2, INPUT);
-  pinMode(PU1, INPUT);
-  pinMode(IR1, INPUT);
+  pinMode(PU1, INPUT);            //Pulsante entrata
+  pinMode(IR1, INPUT);            //Ricevitori infrarossi
   pinMode(IR2, INPUT);
   pinMode(IR3, INPUT);
-  pinMode(EM, OUTPUT);
-  //REGISTRI
+  pinMode(EM, OUTPUT);            //Emettitori infrarossi
+  Serial.begin(9600);             //Inizializzo la seriale USB per debug
+  //Agisco sui registri dell'ATMEGA per emetterre 36kHz sul pin 11
   TCCR2A = _BV(WGM21) | _BV(COM2A0);
   TCCR2B = _BV(CS20);
   OCR2A = 221;
-  Serial.begin(9600);
 }
 
 void loop() {
-  // isSunnyToday();
-  // parkingBar1();
-  // parkingBar2();
-  // displayP();
-  // simCars();
-  testSbarra();
+  routine();                      //Eseguo il loop di istruzioni del parcheggio finale
 }
