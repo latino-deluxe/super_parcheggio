@@ -1,13 +1,13 @@
 #include "vars.h"
 #include "classesS.h"
 
-void initServo() {                                      //inizializzo pin servomotore
+void initServo() {                                      //inizializzo pin servo
   mariottide.attach(12);
   billyballo.attach(13);
 }
 
 void checkButton() {                                    //controllo del bottone d'entrata
-  VP1 = digitalRead(PU1);
+  VP1 = digitalRead(PU1);               
   if(VP1 == HIGH) {
     entry1 = true;
     delay(10);
@@ -74,13 +74,7 @@ void testIR() {                                         //funzione di test IR
 
 void simCars() {                                        //funzione di simulazione delle macchine
   posti--;
-  delay(500);
-  posti--;
-  delay(500);
-  posti++;
-  delay(500);
-  posti++;
-  delay(500);
+  return;
 }
 
 void checkPosti() {                                     //controlo e limito la variabile dei posti

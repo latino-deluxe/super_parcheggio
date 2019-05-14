@@ -10,15 +10,15 @@
 
 void setup() {
   //Imposto le variabili globali a zero (o al valore iniziale che desidero);
-  FRM = 0;
-  FR1 = 0;
+  FRM = 0;                        //variabile media dei fotoresistori
+  FR1 = 0;                        //variabile dei fotoresistori
   FR2 = 0;
-  VP1 = 0;
-  VIR1 = 0;
+  VP1 = 0;                        //variabile stato pulsante 
+  VIR1 = 0;                       //variabile sensori infrarossi
   VIR2 = 0;
-  VIR3 = 0;
-  i = 0;
-  posti = 4;
+  VIR3 = 0;     
+  i = 0;                          //variabile per i cicli for
+  posti = 4;                      //posti del parcheggio
   initServo();                    //Inizializzo i servo
   displayInit();                  //Inizializzo Display LCD
   pinMode(FTR1, INPUT);           //Fotoresistori
@@ -36,5 +36,10 @@ void setup() {
 }
 
 void loop() {
-  routine();                      //Eseguo il loop di istruzioni del parcheggio finale
+  // routine();                      //Eseguo il loop di istruzioni del parcheggio finale
+  simCars();
+  displayP();
+  delay(500);
+  if(posti <= 0) posti = 0;
+  if(posti == -1) posti = 0;
 }

@@ -2,12 +2,11 @@
 #include "classesD.h"
 
 void displayInit() {                                    //inizializzo il display I2C
-  lcd.init();
-  lcd.backlight();
+  lcd.init();                                           //fa partire la comunicazione
+  lcd.backlight();                                      //accende la backlight dell'LCD
 }
 
 void displayTEST() {                                    //funzione di test per il display
-  
   for(i=1; i<=15; i++) {
     lcd.clear();
     lcd.setCursor(0,0);
@@ -29,10 +28,10 @@ void displayTEST() {                                    //funzione di test per i
 
 void displayP() {                                       //routine di refresh del display
   lcd.clear();                                          //pulisco il buffer per riscrivere il display
-  lcd.setCursor(0,0);
+  lcd.setCursor(0,0);                                   //imposto il cursore a prima riga prima colonna
   lcd.print("Parcheggi");
-  lcd.setCursor(0,1);
+  lcd.setCursor(0,1);                                   //imposto il cursore a seconda riga prima colonna
   lcd.print("liberi :");
-  lcd.setCursor(11,1);
+  lcd.setCursor(11,1);                                  //imposto il cursore a seconda riga undicesima colonna
   lcd.print(posti);                                     //mostro i posti disponibili
 }
