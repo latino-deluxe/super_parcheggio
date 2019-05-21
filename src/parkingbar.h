@@ -7,3 +7,7 @@ void testIR();
 void simCars();
 void checkPosti();
 void testSbarra();
+void UP1();
+void DOWN1();
+void UP2();
+void DOWN2();

@@ -50,5 +50,5 @@ extr int VIR3;
 //Variabili posti
 extr int posti;
 
-//misc
+//Variabile ciclo for
 extr int i;
