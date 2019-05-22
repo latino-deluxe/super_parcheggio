@@ -21,6 +21,7 @@ void UP1() {
     mariottide.write(u);
     delay(25);
   }
+  AAAAA = true;
 }
 
 void UP2() {
@@ -35,6 +36,7 @@ void DOWN1() {
     mariottide.write(d);
     delay(25);
   }
+  AAAAA = false;
 }
 
 void DOWN2() {
@@ -50,7 +52,10 @@ void parkingBar1() {                                    //gestisco la sbarra di 
   checkIR();                                            //controllo infrarossi
   if((VP1 == 1) || (VP1 == 1) && (VIR1 == 0)) UP1();
   if(VIR1) mariottide.write(90);
-  if((VIR1 == 0) && (VP1 == 0)) mariottide.write(180);
+  if((VIR1 == 0) && (VP1 == 0)) {
+    if(AAAAA) DOWN1();
+    else mariottide.write(180);
+  }
 }
 
 void parkingBar2() {                                    //gestisco la sbarra di uscita
