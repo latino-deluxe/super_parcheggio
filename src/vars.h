@@ -42,6 +42,7 @@ extr bool entry2;
 extr bool exit1;
 extr bool exit2;
 extr bool AAAAA;
+extr bool BBBBB;
 
 //Variabili globali valore infrarossi
 extr int VIR1;

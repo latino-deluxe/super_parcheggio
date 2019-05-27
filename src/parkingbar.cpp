@@ -4,6 +4,9 @@
 void initServo() {                                      //inizializzo pin servo
   mariottide.attach(12);
   billyballo.attach(13);
+  delay(15);
+  mariottide.write(180);
+  billyballo.write(1);
 }
 
 void checkButton() {                                    //controllo del bottone d'entrata
@@ -29,6 +32,7 @@ void UP2() {
     billyballo.write(u);
     delay(25);
   }
+  BBBBB = true;
 }
 
 void DOWN1() {
@@ -44,6 +48,7 @@ void DOWN2() {
     billyballo.write(d);
     delay(25);
   }
+  BBBBB = false;
 }
 
 
@@ -60,11 +65,12 @@ void parkingBar1() {                                    //gestisco la sbarra di 
 
 void parkingBar2() {                                    //gestisco la sbarra di uscita
   checkIR();                                            //controllo degli infrarossi
-  // if((VIR2 ==1) || (VIR2 == 1) && (VIR3 == 0)) UP2();
-  // if(VIR3) billyballo.write(90);
-  // if((VIR3 == 0) && (VIR2 == 0)) billyballo.write(1);
-  if(VIR2) UP2();
-  else billyballo.write(1);
+  if((VIR2 == 1) || (VIR2 == 1) && (VIR3 == 0)) UP2();
+  if(VIR3) billyballo.write(90);
+  if((VIR3 == 0) && (VIR2 == 0)) {
+    if(BBBBB) DOWN2();
+    else billyballo.write(1);
+  }
 }
 
 void testIR() {                                         //funzione di test IR

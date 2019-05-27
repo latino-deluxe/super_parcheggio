@@ -17,7 +17,7 @@ void setup() {
   VIR1 = 0;                       //variabile sensori infrarossi
   VIR2 = 0;
   VIR3 = 0;     
-  i = 180;                          //variabile per i cicli for
+  i = 180;                        //variabile per i cicli for
   posti = 4;                      //posti del parcheggio
   initServo();                    //Inizializzo i servo
   displayInit();                  //Inizializzo Display LCD
@@ -36,6 +36,5 @@ void setup() {
 }
 
 void loop() {
-  // routine();                      //Eseguo il loop di istruzioni del parcheggio finale
-  parkingBar1();
+  routine();                      //Eseguo il loop di istruzioni del parcheggio
 }
