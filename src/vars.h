@@ -18,6 +18,7 @@
 
 //Pulsanti
 #define PU1 2
+#define PU2 3
 
 //LED Sbarra
 #define LY1 6
@@ -26,7 +27,6 @@
 //IR
 #define IR1 A3
 #define IR2 A4
-#define IR3 A5
 #define EM 11
 
 //Variabili globali fotoresistori
@@ -37,6 +37,7 @@ extr bool sunny;
 
 //Variabili globali parking bar
 extr int VP1;
+extr int VP2;
 extr bool entry1;
 extr bool entry2;
 extr bool exit1;
@@ -47,7 +48,6 @@ extr bool BBBBB;
 //Variabili globali valore infrarossi
 extr int VIR1;
 extr int VIR2;
-extr int VIR3;
 
 //Variabili posti
 extr int posti;

@@ -6,6 +6,7 @@ void initServo();
 void testIR();
 void simCars();
 void checkPosti();
+void updatePosti();
 void testSbarra();
 void UP1();
 void DOWN1();

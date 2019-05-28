@@ -14,19 +14,19 @@ void setup() {
   FR1 = 0;                        //variabile dei fotoresistori
   FR2 = 0;
   VP1 = 0;                        //variabile stato pulsante 
+  VP2 = 0;
   VIR1 = 0;                       //variabile sensori infrarossi
   VIR2 = 0;
-  VIR3 = 0;     
   i = 180;                        //variabile per i cicli for
   posti = 4;                      //posti del parcheggio
   initServo();                    //Inizializzo i servo
   displayInit();                  //Inizializzo Display LCD
   pinMode(FTR1, INPUT);           //Fotoresistori
   pinMode(FTR2, INPUT);
-  pinMode(PU1, INPUT);            //Pulsante entrata
+  pinMode(PU1, INPUT);            //Pulsanti entrata
+  pinMode(PU2, INPUT);
   pinMode(IR1, INPUT);            //Ricevitori infrarossi
   pinMode(IR2, INPUT);
-  pinMode(IR3, INPUT);
   pinMode(EM, OUTPUT);            //Emettitori infrarossi
   Serial.begin(9600);             //Inizializzo la seriale USB per debug
   //Agisco sui registri dell'ATMEGA per emetterre 36kHz sul pin 11

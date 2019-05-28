@@ -11,12 +11,18 @@ void initServo() {                                      //inizializzo pin servo
 
 void checkButton() {                                    //controllo del bottone d'entrata
   VP1 = digitalRead(PU1);  
+  VP2 = digitalRead(PU2);
 }
 
 void checkIR() {                                        //controllo i sensori infrarossi
   VIR1 = digitalRead(IR1);
   VIR2 = digitalRead(IR2);
-  VIR3 = digitalRead(IR3);
+}
+
+void updatePosti() {
+  checkButton();
+  if(VP1) posti--;
+  if(VP2) posti++;
 }
 
 void UP1() {
@@ -64,28 +70,25 @@ void parkingBar1() {                                    //gestisco la sbarra di 
 }
 
 void parkingBar2() {                                    //gestisco la sbarra di uscita
+  checkButton();                                        //controllo pulsanti
   checkIR();                                            //controllo degli infrarossi
-  if((VIR2 == 1) || (VIR2 == 1) && (VIR3 == 0)) UP2();
-  if(VIR3) billyballo.write(90);
-  if((VIR3 == 0) && (VIR2 == 0)) {
-    if(BBBBB) DOWN2();
-    else billyballo.write(1);
+  if((VP2 == 1) || (VP2 == 1) && (VIR2 == 0)) UP1();
+  if(VIR2) mariottide.write(90);
+  if((VIR2 == 0) && (VP2 == 0)) {
+    if(BBBBB) DOWN1();
+    else mariottide.write(180);
   }
 }
 
 void testIR() {                                         //funzione di test IR
   int TIR1;
   int TIR2;
-  int TIR3;
   TIR1 = digitalRead(IR1);                              //leggo e visualizzo in seriale
   TIR2 = digitalRead(IR2);
-  TIR3 = digitalRead(IR3);
   Serial.print("IR1 = ");
   Serial.print(TIR1);
   Serial.print("  IR2 = ");
-  Serial.print(TIR2);
-  Serial.print("  IR3 = ");
-  Serial.println(TIR3);
+  Serial.println(TIR2);
 }
 
 

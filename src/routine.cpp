@@ -5,6 +5,7 @@
 
 void routine() {
   isSunnyToday();
+  checkPosti();
   parkingBar1();
   parkingBar2();
   displayP();
