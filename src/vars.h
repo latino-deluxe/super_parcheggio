@@ -13,7 +13,6 @@
 
 //Luci
 #define FTR1 A0
-#define FTR2 A1
 #define LIGHTSPIN 5
 
 //Pulsanti
@@ -31,8 +30,6 @@
 
 //Variabili globali fotoresistori
 extr int FR1;
-extr int FR2;
-extr int FRM;
 extr bool sunny;
 
 //Variabili globali parking bar
@@ -44,6 +41,7 @@ extr bool exit1;
 extr bool exit2;
 extr bool AAAAA;
 extr bool BBBBB;
+extr bool entrata;
 
 //Variabili globali valore infrarossi
 extr int VIR1;

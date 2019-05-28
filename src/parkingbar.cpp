@@ -47,6 +47,7 @@ void DOWN1() {
     delay(25);
   }
   AAAAA = false;
+  posti--;
 }
 
 void DOWN2() {
@@ -55,6 +56,7 @@ void DOWN2() {
     delay(25);
   }
   BBBBB = false;
+  posti++;
 }
 
 
@@ -98,9 +100,8 @@ void simCars() {                                        //funzione di simulazion
 }
 
 void checkPosti() {                                     //controlo e limito la variabile dei posti
-  if(posti <= 0)  posti = 0;                            //se va sottozero limito a zero
-  if(posti == -1) posti++;                              //perchè si prende il limite a -1???
-  if(posti >= 4) posti = 4;                             //se aumenta oltre 4 imposto 4
+  if(posti == 0) entrata == false;
+  else entrata== true;
 }
 
 void testSbarra() {

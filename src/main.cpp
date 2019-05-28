@@ -10,9 +10,7 @@
 
 void setup() {
   //Imposto le variabili globali a zero (o al valore iniziale che desidero);
-  FRM = 0;                        //variabile media dei fotoresistori
   FR1 = 0;                        //variabile dei fotoresistori
-  FR2 = 0;
   VP1 = 0;                        //variabile stato pulsante 
   VP2 = 0;
   VIR1 = 0;                       //variabile sensori infrarossi
@@ -22,7 +20,6 @@ void setup() {
   initServo();                    //Inizializzo i servo
   displayInit();                  //Inizializzo Display LCD
   pinMode(FTR1, INPUT);           //Fotoresistori
-  pinMode(FTR2, INPUT);
   pinMode(PU1, INPUT);            //Pulsanti entrata
   pinMode(PU2, INPUT);
   pinMode(IR1, INPUT);            //Ricevitori infrarossi

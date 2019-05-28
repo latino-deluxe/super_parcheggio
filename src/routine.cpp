@@ -1,12 +1,13 @@
 #include "lights.h"
 #include "parkingbar.h"
 #include "display.h"
+#include "vars.h"
 
 
 void routine() {
   isSunnyToday();
   checkPosti();
-  parkingBar1();
+  if(entrata) parkingBar1();
   parkingBar2();
   displayP();
 }
