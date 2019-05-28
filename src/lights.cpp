@@ -2,5 +2,6 @@
 
 void isSunnyToday() {                         //controllo se è buio
   FR1 = analogRead(FTR1);                     //leggo i fotoresistori
-  analogWrite(LIGHTSPIN, FR1);                //scrivo il valore sulle resistenze
+  if(FR1 < 500) digitalWrite(LIGHTSPIN, HIGH);//scrivo il valore sulle resistenze
+  else digitalWrite(LIGHTSPIN, LOW);
 }

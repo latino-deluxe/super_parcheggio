@@ -21,8 +21,8 @@ void checkIR() {                                        //controllo i sensori in
 
 void updatePosti() {
   checkButton();
-  if(VP1) posti--;
-  if(VP2) posti++;
+  if(VP1 == 0) posti--;
+  if(VP2 == 0) posti++;
 }
 
 void UP1() {
@@ -63,9 +63,9 @@ void DOWN2() {
 void parkingBar1() {                                    //gestisco la sbarra di entrata
   checkButton();                                        //controllo pulsante
   checkIR();                                            //controllo infrarossi
-  if((VP1 == 1) || (VP1 == 1) && (VIR1 == 0)) UP1();
+  if((VP1 == 0) || (VP1 == 0) && (VIR1 == 0)) UP1();
   if(VIR1) mariottide.write(90);
-  if((VIR1 == 0) && (VP1 == 0)) {
+  if((VIR1 == 0) && (VP1 == 1)) {
     if(AAAAA) DOWN1();
     else mariottide.write(180);
   }
@@ -74,9 +74,9 @@ void parkingBar1() {                                    //gestisco la sbarra di 
 void parkingBar2() {                                    //gestisco la sbarra di uscita
   checkButton();                                        //controllo pulsanti
   checkIR();                                            //controllo degli infrarossi
-  if((VP2 == 1) || (VP2 == 1) && (VIR2 == 0)) UP1();
+  if((VP2 == 0) || (VP2 == 0) && (VIR2 == 0)) UP1();
   if(VIR2) mariottide.write(90);
-  if((VIR2 == 0) && (VP2 == 0)) {
+  if((VIR2 == 0) && (VP2 == 1)) {
     if(BBBBB) DOWN1();
     else mariottide.write(180);
   }
