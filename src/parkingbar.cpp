@@ -1,5 +1,6 @@
 #include "vars.h"
 #include "classesS.h"
+#include "display.h"
 
 void initServo() {                                      //inizializzo pin servo
   mariottide.attach(12);
@@ -23,6 +24,8 @@ void updatePosti() {
   checkButton();
   if(VP1 == 0) posti--;
   if(VP2 == 0) posti++;
+  if(posti < 0) posti == 0;
+  if(posti > 4) posti == 4;
 }
 
 void UP1() {
@@ -34,7 +37,7 @@ void UP1() {
 }
 
 void UP2() {
-  for(int u = 1; u<=90; u++) {
+  for(int u = 180; u>=90; u--) {
     billyballo.write(u);
     delay(25);
   }
@@ -66,20 +69,24 @@ void parkingBar1() {                                    //gestisco la sbarra di 
   if((VP1 == 0) || (VP1 == 0) && (VIR1 == 0)) UP1();
   if(VIR1) mariottide.write(90);
   if((VIR1 == 0) && (VP1 == 1)) {
-    if(AAAAA) DOWN1();
-    else mariottide.write(180);
+    // if(AAAAA) DOWN1();
+    // else 
+    mariottide.write(180);
   }
+  // refresh();
 }
 
 void parkingBar2() {                                    //gestisco la sbarra di uscita
   checkButton();                                        //controllo pulsanti
   checkIR();                                            //controllo degli infrarossi
-  if((VP2 == 0) || (VP2 == 0) && (VIR2 == 0)) UP1();
-  if(VIR2) mariottide.write(90);
+  if((VP2 == 0) || (VP2 == 0) && (VIR2 == 0)) UP2();
+  if(VIR2) billyballo.write(180);
   if((VIR2 == 0) && (VP2 == 1)) {
-    if(BBBBB) DOWN1();
-    else mariottide.write(180);
+    // if(BBBBB) DOWN1();
+    // else 
+    billyballo.write(90);
   }
+  // refresh();
 }
 
 void testIR() {                                         //funzione di test IR
@@ -100,7 +107,7 @@ void simCars() {                                        //funzione di simulazion
 }
 
 void checkPosti() {                                     //controlo e limito la variabile dei posti
-  if(posti == 0) entrata == false;
+  if(posti <= 0) entrata == false;
   else entrata== true;
 }
 
