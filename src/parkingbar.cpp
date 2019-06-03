@@ -37,15 +37,11 @@ void UP1() {
 }
 
 void UP2() {
-  // for(int u = 90; u>=0; u--) {
-  //   billyballo.write(u);
-  //   delay(25);
-  // }
-  // BBBBB = true;
   for(int i=0; i<=90; i++) {      //salita
      billyballo.write(i);
      delay(15);
  }
+ BBBBB = true;
 }
 
 void DOWN1() {
@@ -54,16 +50,16 @@ void DOWN1() {
     delay(25);
   }
   AAAAA = false;
-  posti--;
+  // posti--;
 }
 
 void DOWN2() {
-  for(int d = 90; d>=1; d--) {
-    billyballo.write(d);
-    delay(25);
-  }
+  for(int i=90; i>=0; i--) {      //discesa
+   billyballo.write(i);
+   delay(15);
+ }
   BBBBB = false;
-  posti++;
+  // posti++;
 }
 
 
@@ -73,9 +69,8 @@ void parkingBar1() {                                    //gestisco la sbarra di 
   if((VP1 == 0) || (VP1 == 0) && (VIR1 == 0)) UP1();
   if(VIR1) mariottide.write(90);
   if((VIR1 == 0) && (VP1 == 1)) {
-    // if(AAAAA) DOWN1();
-    // else 
-    mariottide.write(180);
+    if(AAAAA) DOWN1();
+    else mariottide.write(180);
   }
   // refresh();
 }
@@ -86,9 +81,8 @@ void parkingBar2() {                                    //gestisco la sbarra di 
   if((VP2 == 0) || (VP2 == 0) && (VIR2 == 0)) UP2();
   if(VIR2) billyballo.write(90);
   if((VIR2 == 0) && (VP2 == 1)) {
-    // if(BBBBB) DOWN1();
-    // else 
-    billyballo.write(0);
+    if(BBBBB) DOWN2();
+    else billyballo.write(0);
   }
   // refresh();
 }
