@@ -27,7 +27,8 @@ void displayTEST() {                                    //funzione di test per i
 }
 
 void displayP() {                                       //routine di refresh del display
-lcd.clear();                                            //pulisco il buffer dello schermo
+  delay(200);                                           //delay di refresh
+  lcd.clear();                                          //pulisco il buffer dello schermo
   lcd.setCursor(0,0);                                   //imposto il cursore a prima riga prima colonna
   lcd.print("Parcheggi");
   lcd.setCursor(0,1);                                   //imposto il cursore a seconda riga prima colonna
