@@ -7,7 +7,7 @@ void initServo() {                                      //inizializzo pin servo
   billyballo.attach(13);                                //servo d'uscita sul pin 13
   delay(15);
   mariottide.write(180);                                //posizioni di partenza
-  billyballo.write(1);
+  billyballo.write(90);
 }
 
 void checkButton() {                                    //controllo del bottone d'entrata
@@ -29,7 +29,7 @@ void updatePosti() {                                    //aggiorno e regolo i po
 }
 
 void UP1() {                                            //funzione di salita servo d'entrata
-  for(int u = 180; u>=90; u--) {
+  for(int u = 180; u>=110; u--) {
     mariottide.write(u);
     delay(25);
   }
@@ -37,7 +37,7 @@ void UP1() {                                            //funzione di salita ser
 }
 
 void UP2() {                                            //funzione di salita servo d'uscita
-  for(int i=0; i<=90; i++) {      
+  for(int i=90; i<=180; i++) {      
      billyballo.write(i);
      delay(25);
  }
@@ -45,7 +45,7 @@ void UP2() {                                            //funzione di salita ser
 }
 
 void DOWN1() {                                          //funzione discesa servo d'entrata
-  for(int d = 90; d<=180; d++) {
+  for(int d = 110; d<=180; d++) {
     mariottide.write(d);
     delay(25);
   }
@@ -53,7 +53,7 @@ void DOWN1() {                                          //funzione discesa servo
 }
 
 void DOWN2() {                                          //funzione discesa servo d'uscita
-  for(int i=90; i>=0; i--) {     
+  for(int i=180; i>=90; i--) {     
    billyballo.write(i);
    delay(25);
  }
@@ -65,7 +65,7 @@ void parkingBar1() {                                    //gestisco la sbarra di 
   checkButton();                                        //controllo pulsante
   checkIR();                                            //controllo infrarossi
   if((VP1 == 0) || (VP1 == 0) && (VIR1 == 0)) UP1();    //alzo la sbarra per far entrare la macchina
-  if(VIR1) mariottide.write(90);                        //tengo alta la sbarra se la macchina è in transito
+  if(VIR1) mariottide.write(110);                        //tengo alta la sbarra se la macchina è in transito
   if((VIR1 == 0) && (VP1 == 1)) {                       //se la macchina è passata
     if(AAAAA) DOWN1();                                  //controllo flag d'entrata, impostata da salita
     else mariottide.write(180);                         //altrimenti posizione fissa
@@ -76,10 +76,10 @@ void parkingBar2() {                                    //gestisco la sbarra di 
   checkButton();                                        //controllo pulsante
   checkIR();                                            //controllo infrarossi
   if((VP2 == 0) || (VP2 == 0) && (VIR2 == 0)) UP2();    //alzo la sbarra per far uscire la macchina
-  if(VIR2) billyballo.write(90);                        //tengo alta la sbarra se la macchina è in transito
+  if(VIR2) billyballo.write(170);                       //tengo alta la sbarra se la macchina è in transito
   if((VIR2 == 0) && (VP2 == 1)) {                       //se la macchina è passata
     if(BBBBB) DOWN2();                                  //controllo flag d'uscita, impostata da salita
-    else billyballo.write(0);                           //altrimenti posizone fissa
+    else billyballo.write(90);                           //altrimenti posizone fissa
   }
 }
 
