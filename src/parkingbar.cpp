@@ -37,11 +37,15 @@ void UP1() {
 }
 
 void UP2() {
-  for(int u = 180; u>=90; u--) {
-    billyballo.write(u);
-    delay(25);
-  }
-  BBBBB = true;
+  // for(int u = 90; u>=0; u--) {
+  //   billyballo.write(u);
+  //   delay(25);
+  // }
+  // BBBBB = true;
+  for(int i=0; i<=90; i++) {      //salita
+     billyballo.write(i);
+     delay(15);
+ }
 }
 
 void DOWN1() {
@@ -80,11 +84,11 @@ void parkingBar2() {                                    //gestisco la sbarra di 
   checkButton();                                        //controllo pulsanti
   checkIR();                                            //controllo degli infrarossi
   if((VP2 == 0) || (VP2 == 0) && (VIR2 == 0)) UP2();
-  if(VIR2) billyballo.write(180);
+  if(VIR2) billyballo.write(90);
   if((VIR2 == 0) && (VP2 == 1)) {
     // if(BBBBB) DOWN1();
     // else 
-    billyballo.write(90);
+    billyballo.write(0);
   }
   // refresh();
 }
@@ -112,14 +116,15 @@ void checkPosti() {                                     //controlo e limito la v
 }
 
 void testSbarra() {
-//   for(int i=0; i<=90; i++) {
-//      billyballo.write(i);
-//      delay(15);
-//  }
-//   for(int i=90; i>=0; i--) {      //uscita 90 0
-//    billyballo.write(i);
-//    delay(15);
-//  }
+  for(int i=0; i<=90; i++) {      //salita
+     billyballo.write(i);
+     delay(15);
+ }
+ delay(1500);
+  for(int i=90; i>=0; i--) {      //discesa
+   billyballo.write(i);
+   delay(15);
+ }
 //  for(int i=180; i>=100; i--) {     //entrata 180 90
 //   mariottide.write(i);
 //   delay(15);

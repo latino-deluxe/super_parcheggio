@@ -12,7 +12,7 @@ void routine() {
   if(posti < 0) posti = 0;
   if(posti > 4) posti = 4;
   if(p > 0) parkingBar1();
-  if(p < 4) parkingBar2();
+  parkingBar2();
   delay(200);
   displayP();
 }
