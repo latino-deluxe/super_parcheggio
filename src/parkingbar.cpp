@@ -113,12 +113,12 @@ void testSbarra() {
 //    billyballo.write(i);
 //    delay(15);
 //  }
- for(int i=180; i>=100; i--) {     //entrata 180 90
-  mariottide.write(i);
-  delay(15);
-}
- for(int i=100; i<=180; i++) {
-    mariottide.write(i);
-    delay(15);
-}
+//  for(int i=180; i>=100; i--) {     //entrata 180 90
+//   mariottide.write(i);
+//   delay(15);
+// }
+//  for(int i=100; i<=180; i++) {
+//     mariottide.write(i);
+//     delay(15);
+// }
 }

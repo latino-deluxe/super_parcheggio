@@ -25,7 +25,7 @@
 
 //IR
 #define IR1 A3
-#define IR2 A4
+#define IR2 A2
 #define EM 11
 
 //Variabili globali fotoresistori

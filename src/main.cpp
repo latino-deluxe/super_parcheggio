@@ -33,6 +33,5 @@ void setup() {
 }
 
 void loop() {
-  // routine();                      //Eseguo il loop di istruzioni del parcheggio
-  testSbarra();
+  routine();                      //Eseguo il loop di istruzioni del parcheggio
 }
