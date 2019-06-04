@@ -27,6 +27,7 @@ void displayTEST() {                                    //funzione di test per i
 }
 
 void displayP() {                                       //routine di refresh del display
+if(posti > 0) {
   delay(200);                                           //delay di refresh
   lcd.clear();                                          //pulisco il buffer dello schermo
   lcd.setCursor(0,0);                                   //imposto il cursore a prima riga prima colonna
@@ -35,6 +36,15 @@ void displayP() {                                       //routine di refresh del
   lcd.print("liberi :");
   lcd.setCursor(11,1);                                  //imposto il cursore a seconda riga undicesima colonna
   lcd.print(posti);                                     //mostro i posti disponibili
+}
+if(posti == 0) {
+  delay(200);
+  lcd.clear();
+  lcd.setCursor(3, 0);
+  lcd.print("Parcheggio");
+  lcd.setCursor(2, 1);
+  lcd.print("al completo");
+}
 }
 
 void refresh(){
